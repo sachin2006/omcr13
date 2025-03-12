@@ -1,0 +1,10 @@
+.highlighted-title {
+    background-color: #e5eef8; /* Light gray background */
+    padding: 10px; /* Padding for spacing */
+    border-radius: 5px; /* Optional: rounded corners */
+  }
+
+.no-border{
+    border: none;
+}
+  
