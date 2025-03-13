@@ -8,7 +8,7 @@ class Vendor {
     this.defaultCurrency = formData.currency;
     this.vendorType = formData.vendorType;
     this.lmgConcept = formData.parentConcept;
-    this.vendorDeliveryEstimates = new VendorDeliveryEstimate(formData.concept, formData.deliveryPromise, formData.cutoffTime, formData.weekoff, formData.country);
+    this.vendorDeliveryEstimate = new VendorDeliveryEstimate(formData.deliveryPromise, formData.cutoffTime, formData.weekoff.join(","), formData.country);
   }
 }
 

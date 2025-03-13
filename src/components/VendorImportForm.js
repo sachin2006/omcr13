@@ -34,13 +34,13 @@ const FormComponent = () => {
   ];
 
   const weekoff = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
+    "MONDAY",
+    "TUESDAY",
+    "WEDNESDAY",
+    "THURSDAY",
+    "FRIDAY",
+    "SATURDAY",
+    "SUNDAY",
   ];
 
   const parentConcept = [
@@ -52,7 +52,13 @@ const FormComponent = () => {
   ];
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    let newValue = value;
+
+    if (name === "concept") {
+      newValue = value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    }
+
+    setFormData({ ...formData, [name]: newValue });
 
     if (name === "country") {
       const selectedCountry = countries.find((country) => country.value === value);
@@ -74,7 +80,9 @@ const FormComponent = () => {
     const newErrors = {};
     Object.keys(formData).forEach((key) => {
       if (!formData[key] || (Array.isArray(formData[key]) && formData[key].length === 0)) {
-        newErrors[key] = "This field is required";
+        if (key !== "customerNameEnglish" && key !== "customerNameArabic") {
+          newErrors[key] = "This field is required";
+        }
       }
     });
     if (Object.keys(newErrors).length > 0) {

@@ -1,10 +1,9 @@
 class VendorDeliveryEstimate {
-  constructor(vendorId, deliveryPromise, cutoffTime, weeklyOff, country) {
-    this.vendorRef = vendorId;
-    this.deliveryPromise = deliveryPromise;
-    this.cutoffTime = cutoffTime;
+  constructor(deliveryPromise, cutoffTime, weeklyOff, country) {
+    this.deliveryEstimateDays = deliveryPromise;
+    this.deliveryCutOffTime = cutoffTime;
     this.weeklyOff = weeklyOff;
-    this.country = country;
+    this.territory = country;
   }
 }
 
